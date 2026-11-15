@@ -13,7 +13,7 @@ public class Produit {
                    BigDecimal tarifJournalier, BigDecimal caution) {
 
         if (tarifJournalier == null || tarifJournalier.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Le tarif journalier doit être positif.");
+            throw new IllegalArgumentException("Tarif journalier invalide");
         }
 
         if (caution == null || caution.compareTo(BigDecimal.ZERO) < 0) {
