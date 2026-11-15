@@ -116,6 +116,7 @@ public class ReservationServiceTest {
                 )
         );
 
+
         assertDoesNotThrow(
                 () -> service.reserverProduit(
                         "E001",
