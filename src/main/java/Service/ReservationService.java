@@ -213,7 +213,28 @@ public class ReservationService {
         verifierDisponibilite(idProduit, dateDebut, dateFin);
 
 
+        BigDecimal montantLocation =
+                calculerMontantLocation(produit, duree);
 
-        return null;
+        BigDecimal caution = produit.getCaution();
+
+        BigDecimal montantTotal =
+                montantLocation.add(caution);
+
+        Commande commande = new Commande(
+                genererReference(),
+                idEtudiant,
+                idProduit,
+                dateDebut,
+                dateFin,
+                duree,
+                montantLocation,
+                caution,
+                montantTotal
+        );
+
+        commandes.add(commande);
+
+        return commande;
     }
 }

@@ -15,11 +15,4 @@ public class Etudiant {
         return idEtudiant;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
 }

@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 public class Produit {
 
     private String idProduit;
-    private String libelle;
     private BigDecimal tarifJournalier;
     private BigDecimal caution;
 
@@ -21,7 +20,6 @@ public class Produit {
         }
 
         this.idProduit = idProduit;
-        this.libelle = libelle;
         this.tarifJournalier = tarifJournalier;
         this.caution = caution;
     }
@@ -30,9 +28,6 @@ public class Produit {
         return idProduit;
     }
 
-    public String getLibelle() {
-        return libelle;
-    }
 
     public BigDecimal getTarifJournalier() {
         return tarifJournalier;

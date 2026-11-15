@@ -709,4 +709,57 @@ public class ReservationServiceTest {
         );
     }
 
+    @Test
+    void testReservationCompleteExempleReference() {
+
+        LocalDate dateDebut = LocalDate.of(2026, 12, 10);
+        LocalDate dateFin = LocalDate.of(2026, 12, 14);
+
+        service.ajouterEtudiant(
+                new Etudiant("E001", "Lina", "kmd")
+        );
+
+        service.ajouterProduit(
+                new Produit(
+                        "P001",
+                        "Ordinateur",
+                        new BigDecimal("10.00"),
+                        new BigDecimal("100.00")
+                )
+        );
+
+        Commande commande = service.reserverProduit(
+                "E001",
+                "P001",
+                dateDebut,
+                dateFin
+        );
+
+        assertNotNull(commande);
+
+        assertNotNull(commande.getReference());
+
+        assertEquals("E001", commande.getIdEtudiant());
+        assertEquals("P001", commande.getIdProduit());
+
+        assertEquals(5, commande.getDuree());
+
+        assertEquals(
+                new BigDecimal("50.00"),
+                commande.getMontantLocation()
+        );
+
+        assertEquals(
+                new BigDecimal("100.00"),
+                commande.getCaution()
+        );
+
+        assertEquals(
+                new BigDecimal("150.00"),
+                commande.getMontantTotal()
+        );
+
+        assertEquals(1, service.getCommandes().size());
+    }
+
 }
